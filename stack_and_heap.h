@@ -3,7 +3,6 @@
 
 /************************************************ For STACK_SIZE+HEAP_SIZE<=0x1000 - see Scater_file **************************************/
 #define STACK_SIZE	0x400
-
-/*******Ћао Милоше Пилоше ******/
+#define HEAP_SIZE	0x900
 
 #endif
