@@ -1,0 +1,69 @@
+;************************************************ Бекусова нотација дефинисања региона пуњења *********************************************/
+;load_region_description ::=
+;	load_region_name  (base_address  | ("+" offset)) [attribute_list] [max_size]
+;			 "{"
+;					execution_region_description+ 
+;			 "}"
+;
+;************************************************ Бекусова нотација дефинисања извршног региона *******************************************/
+;execution_region_description ::= 
+;  exec_region_name (base_address | "+" offset) [attribute_list] [max_size | length]
+;        "{" 
+;            input_section_description* 
+;        "}"
+;
+;************************************************ Бекусова нотација дефинисања улазног региона *******************************************/
+;input_section_description ::=   module_select_pattern  [ "(" input_section_selector ( "," input_section_selector )* ")" ]
+;
+;input_section_selector ::=  ("+" input_section_attr | input_section_pattern | input_symbol_pattern | section_properties) 
+;
+
+region_punjenja 0x0 0x80000																			;Идемо на 512K - full
+{
+  oblast_tabele_vektora 0x0 0x100
+	{
+		pokretacki_kod_V3_0.o (oblast_tabele_vektora, +First)						;вектор табела
+	}
+	oblast_prekida 0x100 FIXED 0x700
+	{
+		pokretacki_kod_V3_0.o (oblast_prekida)
+	}
+	oblast_inicijalizacije 0x800	FIXED 0x800
+	{
+		pokretacki_kod_V3_0.o (oblast_inicijalizacije)
+		inicijalizacija_podataka_V3_0.o (kod_za_inicijalizaciju_podataka)
+	}
+	oblast_za_programiranje_ROM_a 0x1000 0x1000
+  {
+		.ANY (za_programiranje_ROM_a)
+	}
+	oblast_armlib_a 0x2000 FIXED 0x4000
+	{
+		*armlib*
+	}
+	oblast_ostalog_koda	0x10000 FIXED 0x10000
+	{
+		.ANY (+RO)
+	}
+	oblast_stoga 0x10000400 EMPTY -0x400
+	{
+	}
+	oblast_gomile 0x10000400 EMPTY 0x900
+	{
+	}
+	oblast_za_ethernet 0x2007C000 EMPTY 0x500
+	{
+	}
+	oblast_RW_podataka1 0x2007C500 0x3000
+	{
+		.ANY (RW_podaci1)
+	}
+	oblast_RW_podataka 0x10001000	0x3000
+	{
+		.ANY (+RW)
+  }
+	oblast_ZI_podataka 0x10004000	0x3000
+	{
+   .ANY (+ZI)
+  }
+}
