@@ -9,7 +9,3 @@
 #define izmena 2
 
 #define izmena3
-
-#define izmena4
-
-#define izmena5
