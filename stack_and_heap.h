@@ -10,3 +10,4 @@
 
 #define izmena3
 
+#define izmena4
