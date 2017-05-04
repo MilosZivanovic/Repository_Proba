@@ -14,3 +14,4 @@
 
 #define izmena5
 
+#define izmena6
