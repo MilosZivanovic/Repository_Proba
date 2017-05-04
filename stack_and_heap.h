@@ -13,5 +13,3 @@
 #define izmena4
 
 #define izmena5
-
-#define izmena6
