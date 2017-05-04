@@ -3,3 +3,5 @@
 
 #define Milos master
 
+#define izmena 2
+
