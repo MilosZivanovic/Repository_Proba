@@ -1,4 +1,3 @@
-
 #define Milos grana2
 #define Milos 3
 
@@ -8,3 +7,5 @@
 #define Milos master
 
 #define izmena 2
+
+#define izmena3
