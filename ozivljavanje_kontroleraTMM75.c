@@ -3,7 +3,9 @@
 #include <arm_math.h>												//Укључује core_cm3.h, math.h и string.h
 
 #pragma diag_suppress  177, 550							//не приказује упозорења о декларисаним променљивaмa које нису више нигде наведене (177) или
-																						//су наведене али нису коришћене (550)
+										//су наведене али нису коришћене (550)
+
+#define dodajem malo
 
 #include <takt_rada.h>
 #include <pauze.h>
