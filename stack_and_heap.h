@@ -7,5 +7,4 @@
 
 #define Milos master
 
-#define izmena1
 #define izmena 2
