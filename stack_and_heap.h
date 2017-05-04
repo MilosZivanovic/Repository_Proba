@@ -6,3 +6,5 @@
 #define Milos 2
 
 #define Milos master
+
+#define izmena1
