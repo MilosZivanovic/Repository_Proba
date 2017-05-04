@@ -4,4 +4,4 @@
 #define Milos master
 
 #define izmena 2
-
+#define izmena3
